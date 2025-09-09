@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: bend-plate   # must be globally unique on Render; tweak if it's taken
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: streamlit run app.py --server.port $PORT --server.address 0.0.0.0
+    autoDeploy: true
+    healthCheckPath: /
